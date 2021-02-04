@@ -52,5 +52,4 @@ for input_file_name in os.listdir(audio_files_path):
         os.remove(input_file_path)
         os.remove(converted_file_path)
 
-col.save()
 col.close()
