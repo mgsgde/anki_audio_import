@@ -12,10 +12,14 @@ speed = 1.25
 # load anki collection and deck
 anki_user_collection_path = os.path.join(anki_user_path, "collection.anki2")
 col = Collection(anki_user_collection_path, log=True)
-modelBasic = col.models.byName('Basic')
-deck = col.decks.byName('MediaImport')
-col.decks.select(deck['id'])
-col.decks.current()['mid'] = modelBasic['id']
+
+# sets current deck and note type == model 
+deck_id = col.decks.id("main")  # creates deck if not exists
+model_id = col.models.byName('Basic')['id']  # model = note type
+
+# specifies the id of the deck that cards are added to by default
+model = col.models.get(model_id)
+model['did'] = deck_id 
 
 os.chdir(cwd)
 
