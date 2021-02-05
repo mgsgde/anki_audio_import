@@ -3,11 +3,20 @@
 import os
 from anki.storage import Collection
 import ffmpeg
+import argparse
 cwd = os.getcwd()
 
-audio_files_path = '/run/user/1000/gvfs/mtp:host=Xiaomi_Redmi_Note_8_Pro_gyvsfarwrwj7prqs/Internal shared storage/Recorders'
-anki_user_path = '/home/mgsgde/.local/share/Anki2/mgsgde'
-speed = 1.25
+parser = argparse.ArgumentParser(description='Import audio files to anki and speed them up.')
+
+parser.add_argument('--audio_files_path', required=True)
+parser.add_argument('--anki_user_path', nargs='?', default='/home/{user}/.local/share/Anki2/{user}'.format(user=os.environ.get('USER')))
+parser.add_argument('--speed', nargs='?', default='1.0')
+
+args = parser.parse_args()
+
+anki_user_path = args.anki_user_path
+audio_files_path = args.audio_files_path
+speed = args.speed
 
 # load anki collection and deck
 anki_user_collection_path = os.path.join(anki_user_path, "collection.anki2")
