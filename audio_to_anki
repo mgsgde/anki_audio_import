@@ -2,8 +2,9 @@
 
 import os
 from anki.storage import Collection
-import ffmpeg
 import argparse
+import ffmpeg
+
 cwd = os.getcwd()
 
 parser = argparse.ArgumentParser(description='Import audio files to anki and speed them up.')
