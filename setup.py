@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="audio_to_ankie",
-    version="1.0.0",
+    version="1.0.1",
     author="Magnus Goedde",
     description="A CLI to import audio files to Anki and speed them up.",
     long_description=long_description,

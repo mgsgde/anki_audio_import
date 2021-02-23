@@ -9,7 +9,7 @@ A CLI to import audio files to Anki and speed them up.
 ## build pip package 
 
 ```bash
-	python setup.py bdist_wheel
+	python3 setup.py bdist_wheel
 ```
 
 ## upload pip package
