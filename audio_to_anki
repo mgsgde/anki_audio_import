@@ -58,8 +58,8 @@ for input_file_name in os.listdir(audio_files_path):
         fname = col.media.addFile(converted_file_path)
         # create corresponding anki note for audio file
         note = col.newNote()
-        note.fields[0] = fname[:-4]
-        note.fields[1] = u'[sound:%s]' % fname
+        note.fields[0] = u'[sound:%s]' % fname
+        note.fields[1] = fname[:-4]
         col.addNote(note)
 
         # clean source
